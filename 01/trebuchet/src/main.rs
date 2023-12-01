@@ -7,6 +7,10 @@ fn main() {
 
 
 
+fn read_lines(filename: &str) -> Option<Vec<String>>{
+    Some(Vec::<String>::new())
+}
+
 
 
 
@@ -31,6 +35,6 @@ mod test{
   #[test]
   fn create_empty(){
     let lines = read_lines("example");
-    assert!(lines != NULL);
+    assert!(lines != None);
   }
 }
