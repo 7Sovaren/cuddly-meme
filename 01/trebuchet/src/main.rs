@@ -13,9 +13,18 @@ fn read_lines(filename: &str) -> Option<String>{
 }
 
 fn get_first_last_digit(line: String) -> i32{
-    let number: String = String::from(line.chars().nth(0).unwrap());
-    let number = number.parse::<i32>().unwrap();
-    (number*10)+number
+    let chars = line.chars();
+    let mut numbers: Vec<i32> = Vec::new();
+    for ch in chars {
+        if ch.is_digit(10) {
+            numbers.push(String::from(ch).parse::<i32>().unwrap());
+        }
+    }
+
+    let first = numbers.first().unwrap();
+    let second = numbers.last().unwrap();
+
+    (first*10)+second
 }
 
 
@@ -51,7 +60,21 @@ mod test{
   fn last_first_doubles(){
     let digit = get_first_last_digit("11".to_string());
     assert!(digit == 11);
+    let digit = get_first_last_digit("1a".to_string());
+    assert!(digit == 11);
     let digit = get_first_last_digit("12".to_string());
     assert!(digit == 12);
+    let digit = get_first_last_digit("23".to_string());
+    assert!(digit == 23);
+  }
+
+  #[test]
+  fn last_first_tripples(){
+    let digit = get_first_last_digit("111".to_string());
+    assert!(digit == 11);
+    let digit = get_first_last_digit("11a".to_string());
+    assert!(digit == 11);
+    let digit = get_first_last_digit("23a".to_string());
+    assert!(digit == 23);
   }
 }
