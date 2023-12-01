@@ -36,5 +36,8 @@ mod test{
   fn create_empty(){
     let lines = read_lines("example");
     assert!(lines != None);
+    let lines = lines.unwrap();
+
+    assert!(lines[0] == "1abc2");
   }
 }
