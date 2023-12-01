@@ -42,5 +42,13 @@ mod test{
     assert!(digit == 11);
     let digit = get_first_last_digit("2".to_string());
     assert!(digit == 22);
+    let digit = get_first_last_digit("3".to_string());
+    assert!(digit == 33);
+  }
+
+  #[test]
+  fn last_first_doubles(){
+    let digit = get_first_last_digit("11".to_string());
+    assert!(digit == 11);
   }
 }
