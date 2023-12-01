@@ -36,8 +36,10 @@ mod test{
   }
 
   #[test]
-  fn last_first(){
+  fn last_first_singles(){
     let digit = get_first_last_digit("1".to_string());
     assert!(digit == 11);
+    let digit = get_first_last_digit("2".to_string());
+    assert!(digit == 22);
   }
 }
