@@ -33,7 +33,7 @@ mod test{
   use super::*;
 
   #[test]
-  fn read_examples(){
+  fn read_not_exist(){
     let lines = read_lines("does_not_exist");
     assert!(lines == None);
   }
