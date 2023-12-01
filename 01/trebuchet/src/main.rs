@@ -37,6 +37,12 @@ mod test{
     let lines = read_lines("does_not_exist");
     assert!(lines == None);
   }
+
+  #[test]
+  fn read_example(){
+    let lines = read_lines("example");
+    assert!(lines != None);
+  }
   
 
 }
