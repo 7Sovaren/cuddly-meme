@@ -1,8 +1,25 @@
 use std::fs;
 use std::path::PathBuf;
+use std::iter;
 
 fn main() {
-    println!("Hello, world!");
+    let mut d = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
+    d.push("examples/input.txt");
+
+    let mut result:i32 = 0; 
+    let lines = read_lines(d.as_os_str().to_str().unwrap());
+    if lines != None{
+        let lines = lines.unwrap();
+        let line_itterator = lines.iter();
+
+        for line in line_itterator{
+            result += get_line_checkdigit(line);
+        }
+        
+        println!("{}", result);
+    }
+
+    
 }
 
 
@@ -18,14 +35,14 @@ fn read_lines(filename: &str) -> Option<Vec<String>>{
     else
     {
         for line in filehandle.unwrap().lines() {
-            result.push(line.to_string())
+            result.push(line.to_string());
         }
     
         Some(result)
     }
 }
 
-fn get_line_checkdigit(line: String) -> i32{
+fn get_line_checkdigit(line: &String) -> i32{
     let chars = line.chars();
     let mut numbers: Vec<i32> = Vec::new();
     for ch in chars {
@@ -81,39 +98,39 @@ mod test{
 
   #[test]
   fn last_first_singles(){
-    let digit = get_line_checkdigit("1".to_string());
+    let digit = get_line_checkdigit(&"1".to_string());
     assert!(digit == 11);
-    let digit = get_line_checkdigit("2".to_string());
+    let digit = get_line_checkdigit(&"2".to_string());
     assert!(digit == 22);
-    let digit = get_line_checkdigit("3".to_string());
+    let digit = get_line_checkdigit(&"3".to_string());
     assert!(digit == 33);
   }
 
   #[test]
   fn last_first_doubles(){
-    let digit = get_line_checkdigit("11".to_string());
+    let digit = get_line_checkdigit(&"11".to_string());
     assert!(digit == 11);
-    let digit = get_line_checkdigit("1a".to_string());
+    let digit = get_line_checkdigit(&"1a".to_string());
     assert!(digit == 11);
-    let digit = get_line_checkdigit("12".to_string());
+    let digit = get_line_checkdigit(&"12".to_string());
     assert!(digit == 12);
-    let digit = get_line_checkdigit("23".to_string());
+    let digit = get_line_checkdigit(&"23".to_string());
     assert!(digit == 23);
   }
 
   #[test]
   fn last_first_tripples(){
-    let digit = get_line_checkdigit("111".to_string());
+    let digit = get_line_checkdigit(&"111".to_string());
     assert!(digit == 11);
-    let digit = get_line_checkdigit("11a".to_string());
+    let digit = get_line_checkdigit(&"11a".to_string());
     assert!(digit == 11);
-    let digit = get_line_checkdigit("23a".to_string());
+    let digit = get_line_checkdigit(&"23a".to_string());
     assert!(digit == 23);
   }
 
   #[test]
   fn check_example(){
-    let digit = get_line_checkdigit("1abc2".to_string());
+    let digit = get_line_checkdigit(&"1abc2".to_string());
     assert!(digit == 12);
   }
 }
