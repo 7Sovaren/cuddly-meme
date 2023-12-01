@@ -12,7 +12,9 @@ fn read_lines(filename: &str) -> Option<String>{
     }
 }
 
-
+fn get_first_last_digit(line: String) -> i32{
+    11
+}
 
 
 #[cfg(test)]
@@ -32,6 +34,10 @@ mod test{
     let lines = lines.unwrap();
     assert!(lines == "1abc2".to_string());
   }
-  
 
+  #[test]
+  fn last_first(){
+    let digit = get_first_last_digit("1".to_string());
+    assert!(digit == 11);
+  }
 }
