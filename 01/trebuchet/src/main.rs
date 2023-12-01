@@ -77,4 +77,10 @@ mod test{
     let digit = get_first_last_digit("23a".to_string());
     assert!(digit == 23);
   }
+
+  #[test]
+  fn check_example(){
+    let digit = get_first_last_digit("1abc2".to_string());
+    assert!(digit == 12);
+  }
 }
