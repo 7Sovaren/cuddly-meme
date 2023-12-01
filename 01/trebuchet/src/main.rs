@@ -51,5 +51,7 @@ mod test{
   fn last_first_doubles(){
     let digit = get_first_last_digit("11".to_string());
     assert!(digit == 11);
+    let digit = get_first_last_digit("12".to_string());
+    assert!(digit == 12);
   }
 }
