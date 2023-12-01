@@ -8,7 +8,12 @@ fn main() {
 
 
 fn read_lines(filename: &str) -> Option<Vec<String>>{
-    None
+    if filename == "example"{
+        Some(Vec::<String>::new())
+    }
+    else{
+        None
+    }
 }
 
 
