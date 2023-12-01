@@ -8,7 +8,7 @@ fn main() {
 
 
 fn read_lines(filename: &str) -> Option<Vec<String>>{
-    Some(Vec::<String>::new())
+    Some(vec!["1abc2".to_string()])
 }
 
 
