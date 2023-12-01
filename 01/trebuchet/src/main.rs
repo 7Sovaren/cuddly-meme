@@ -47,6 +47,7 @@ mod test{
   fn read_example(){
     let lines = read_lines("example");
     assert!(lines != None);
+    assert!(lines == "1abc2");
   }
   
 
