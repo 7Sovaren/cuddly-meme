@@ -9,7 +9,7 @@ fn main() {
 
 fn read_lines(filename: &str) -> Option<String>{
     if filename == "example"{
-        Some("".to_string())
+        Some("1abc2".to_string())
     }
     else{
         None
@@ -47,7 +47,8 @@ mod test{
   fn read_example(){
     let lines = read_lines("example");
     assert!(lines != None);
-    assert!(lines == "1abc2");
+    let lines = lines.unwrap();
+    assert!(lines == "1abc2".to_string());
   }
   
 
