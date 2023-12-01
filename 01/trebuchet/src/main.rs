@@ -13,7 +13,8 @@ fn read_lines(filename: &str) -> Option<String>{
 }
 
 fn get_first_last_digit(line: String) -> i32{
-    let number = line.parse::<i32>().unwrap();
+    let number: String = String::from(line.chars().nth(0).unwrap());
+    let number = number.parse::<i32>().unwrap();
     (number*10)+number
 }
 
