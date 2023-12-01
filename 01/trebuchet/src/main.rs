@@ -3,32 +3,14 @@ fn main() {
 }
 
 
-
-
-
-
 fn read_lines(filename: &str) -> Option<String>{
-    if filename == "example"{
+    if filename == "example1"{
         Some("1abc2".to_string())
     }
     else{
         None
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -44,8 +26,8 @@ mod test{
   }
 
   #[test]
-  fn read_example(){
-    let lines = read_lines("example");
+  fn read_example1(){
+    let lines = read_lines("example1");
     assert!(lines != None);
     let lines = lines.unwrap();
     assert!(lines == "1abc2".to_string());
