@@ -7,9 +7,9 @@ fn main() {
 
 
 
-fn read_lines(filename: &str) -> Option<Vec<String>>{
+fn read_lines(filename: &str) -> Option<String>{
     if filename == "example"{
-        Some(Vec::<String>::new())
+        Some("".to_string())
     }
     else{
         None
